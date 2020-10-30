@@ -1,0 +1,22 @@
+class Solution {
+    public int[] distributeCandies(int candies, int num_people) {
+        int[] totals = new int[num_people];
+        int index = 0; int count = 0;int sum = 0;
+        while(candies >= 0){
+            sum += count;
+            count++;
+            if(candies - sum  < count){
+                totals[index] += candies - sum;
+                break;
+            }else{
+                totals[index] += count;
+            }
+            if(index == num_people-1)
+                index = 0;
+            else
+                index++;
+        }
+        return totals;
+        
+    }
+}
