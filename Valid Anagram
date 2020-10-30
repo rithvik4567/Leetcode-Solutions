@@ -1,0 +1,21 @@
+class Solution {
+    public boolean isAnagram(String s, String t) {
+        String S = s.replaceAll("\\s", "");  
+        String T = t.replaceAll("\\s", "");  
+        if(S.length() != T.length()){
+            return false;
+        }else{
+            char[] s1 = S.toLowerCase().toCharArray();
+            char[] t1 = T.toLowerCase().toCharArray();
+            Arrays.sort(s1);
+            Arrays.sort(t1);
+            if(Arrays.equals(s1,t1)){
+                return true;
+            }else{
+                return false;
+            }
+            
+        }
+        
+    }
+}
