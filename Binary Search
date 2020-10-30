@@ -1,0 +1,20 @@
+class Solution {
+    public int search(int[] nums, int target) {
+      int half = nums.length/2;
+      boolean finish = false;
+      while(!finish){
+        if(nums[half] == target){
+            finish = true;
+            return half;
+        }else if(nums[half] > target){
+            half = half - half/2;
+        }else if(nums[half] < target){
+            half = half + half/2;
+        }
+        if(half == 0){
+            break;
+        }
+      }
+        return -1;
+    }
+}
