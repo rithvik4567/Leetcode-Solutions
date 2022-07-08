@@ -1,0 +1,15 @@
+class Solution(object):
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        new_dict = dict()
+        
+        for x in range(len(nums)):
+            comp = target - nums[x]
+            if nums[x] not in new_dict:
+                new_dict[comp] = x
+            else:
+                return [x,new_dict[nums[x]]]
