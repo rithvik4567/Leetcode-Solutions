@@ -1,0 +1,11 @@
+class Solution(object):
+    def containsDuplicate(self, nums):
+        
+        numbers = set()
+        
+        for i in range(len(nums)):
+            if nums[i] in numbers:
+                return True
+            else:
+                numbers.add(nums[i])
+        return False
