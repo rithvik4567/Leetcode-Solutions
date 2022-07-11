@@ -1,0 +1,22 @@
+class Solution(object):
+    def productExceptSelf(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        #Multiply everything before index with everything after index
+        #Create a new list to store output
+        product = [1] * len(nums)
+        prefix = 1
+        for i in range(len(nums)):
+            product[i] = prefix
+            prefix *= nums[i]
+        
+        #Postfix run
+        postfix = 1
+        for i in reversed(range(len(nums))):
+            product[i] *= postfix
+            postfix *= nums[i]
+        
+        return product
+        
