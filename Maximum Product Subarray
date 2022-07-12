@@ -1,0 +1,16 @@
+class Solution(object):
+    def maxProduct(self, nums):
+       
+        product = nums[0]
+        cur_min = 1
+        cur_max = 1
+        
+        for i in nums:
+            temp = cur_max * i
+            cur_max = max(cur_max * i, cur_min * i,i)
+            cur_min = min(temp,cur_min * i, i)
+            product = max(product,cur_max)
+        
+        return product
+    
+            
