@@ -1,0 +1,17 @@
+class Solution(object):
+    def maxSubArray(self, nums):
+
+        #Max sum is highest contiguos sum
+        max_sum = nums[0]
+        current_sum = 0
+        
+        for i in nums:
+            #If your sum is less than 0 reset it
+            if current_sum < 0:
+                current_sum = 0
+            current_sum += i
+            max_sum = max(max_sum,current_sum)
+            
+        return max_sum
+        
+        
