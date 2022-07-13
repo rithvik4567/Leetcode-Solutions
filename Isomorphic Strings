@@ -1,0 +1,17 @@
+class Solution(object):
+    def isIsomorphic(self, s, t):
+        
+        chars = dict()
+        
+        if len(s) != len(t):
+            return False
+        for i in range(len(s)):
+            if s[i] not in chars:
+                if t[i] not in chars.values():
+                    chars[s[i]] = t[i]
+                else:
+                    return False
+            else:
+                if chars[s[i]] != t[i]:
+                    return False
+        return True
