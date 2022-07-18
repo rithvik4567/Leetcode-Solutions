@@ -1,0 +1,29 @@
+class Solution(object):
+    def isAnagram(self, s, t):
+        """
+        :type s: str
+        :type t: str
+        :rtype: bool
+        """
+        s_map = dict()
+        
+        for x in s:
+            if x in s_map:
+                s_map[x] +=1
+            else:
+                s_map[x] = 1
+        for x in t:
+            if x not in s_map:
+                return False
+            else:
+                s_map[x] -=1
+                if s_map[x] < 0:
+                    return False
+        
+        for key in s_map:
+            if s_map[key] != 0:
+                return False
+            
+        return True
+        
+        
