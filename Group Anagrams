@@ -1,0 +1,26 @@
+class Solution(object):
+    def groupAnagrams(self, strs):
+        """
+        :type strs: List[str]
+        :rtype: List[List[str]]
+        """
+        
+        words = {}
+        output = []
+        list_index = 0
+        
+        sorted_str = []
+        for x in strs:
+            #sorted_str.append(x.sort())
+            sorted_str.append(''.join(sorted(x)))
+        
+        for i in range(len(sorted_str)):
+            if sorted_str[i] not in words:
+                words[sorted_str[i]] = list_index
+                output.append([strs[i]])
+                list_index += 1
+            else:
+                output[words[sorted_str[i]]].append(strs[i])
+        
+        return output
+                
