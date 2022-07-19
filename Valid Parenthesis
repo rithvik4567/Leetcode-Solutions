@@ -1,0 +1,27 @@
+class Solution(object):
+    def isValid(self, s):
+        """
+        :type s: str
+        :rtype: bool
+        """
+
+filo_stack = []
+        
+        for c in s:
+            if c == '(' or c == '[' or c == '{':
+                filo_stack.append(c)
+            else:
+                if len(filo_stack) == 0:
+                    return False
+                if filo_stack[-1] == '(' and c == ')':
+                    filo_stack.pop(len(filo_stack) - 1)
+                elif filo_stack[-1] == '[' and c == ']':
+                    filo_stack.pop(len(filo_stack) - 1)
+                elif filo_stack[-1] == '{' and c == '}':
+                    filo_stack.pop(len(filo_stack) - 1)
+                else:
+                    return False
+        if len(filo_stack) == 0:
+            return True
+        else:
+            return False
