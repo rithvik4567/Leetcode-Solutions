@@ -4,24 +4,19 @@ class Solution(object):
         :type s: str
         :rtype: bool
         """
-
-filo_stack = []
+        lst = []
+        parens = {')':'(',']':'[','}':'{'}
         
-        for c in s:
-            if c == '(' or c == '[' or c == '{':
-                filo_stack.append(c)
+        
+        for x in s:
+            if x in parens.values():
+                lst.append(x)
             else:
-                if len(filo_stack) == 0:
+                if len(lst) == 0:
                     return False
-                if filo_stack[-1] == '(' and c == ')':
-                    filo_stack.pop(len(filo_stack) - 1)
-                elif filo_stack[-1] == '[' and c == ']':
-                    filo_stack.pop(len(filo_stack) - 1)
-                elif filo_stack[-1] == '{' and c == '}':
-                    filo_stack.pop(len(filo_stack) - 1)
+                if lst[-1] != parens[x]:
+                    return False
                 else:
-                    return False
-        if len(filo_stack) == 0:
-            return True
-        else:
-            return False
+                    lst.pop(len(lst)-1)
+        return len(lst) == 0
+        
