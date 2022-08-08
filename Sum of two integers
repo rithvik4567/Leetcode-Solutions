@@ -1,0 +1,12 @@
+class Solution {
+    public int getSum(int a, int b) {
+        while(b!=0){
+        //Store bitwise and in b to find out if there is a carry and shift left by 1 
+            int temp = (a & b) << 1;
+        //Store xor in a to find "the sum" between a and b
+            a = a ^ b;
+            b = temp;
+        }
+        return a;
+    }
+}
