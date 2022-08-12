@@ -1,0 +1,11 @@
+from collections import Counter
+def sort_words(words):
+    cnt = Counter()
+    for word in words:
+        cnt[word] +=1
+    dict_list = dict(cnt)
+    cnt = dict(sorted(cnt.items(), key = lambda item: (item[1],item[0])))
+    print(list(cnt.keys()))
+    
+    
+sort_words(['ap','ab','ap','ap','ap','d','e','ball','ball','ball'])
