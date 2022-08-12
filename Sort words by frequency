@@ -9,3 +9,16 @@ def sort_words(words):
     
     
 sort_words(['ap','ab','ap','ap','ap','d','e','ball','ball','ball'])
+
+
+def sort_words(words):
+    dict_list = {}
+    for word in words:
+        if word not in dict_list:
+            dict_list[word] = 1
+        else:
+            dict_list[word] += 1
+    print([p[0] for p in sorted(dict_list.items(), key = lambda item: (item[1],item[0]))])
+    
+    
+sort_words(['ap','ab','ap','ap','ap','d','e','ball','ball','ball'])
