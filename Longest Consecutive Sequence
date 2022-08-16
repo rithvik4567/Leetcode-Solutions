@@ -1,0 +1,21 @@
+class Solution(object):
+    def longestConsecutive(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        
+        numset = set(nums)
+        ans = 0
+        
+        for n in nums:
+            if (n-1) not in numset:
+                temp_len = 0
+                while n in numset:
+                    temp_len += 1
+                    n += 1
+                ans = max(ans,temp_len)
+        return ans
+                
+                    
+        
