@@ -1,0 +1,21 @@
+class Solution(object):
+    def minSetSize(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: int
+        """
+        nums = {}
+        for i in arr:
+            nums[i] = nums.get(i,0) + 1
+        vals = sorted(nums.values(),reverse=True)
+        half = len(arr) / 2
+        ans = 0
+        temp = 0
+        for x in vals:
+            temp += x
+            ans += 1
+            if temp >= half:
+                return ans
+        
+            
+        
