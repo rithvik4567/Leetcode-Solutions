@@ -36,4 +36,15 @@ def sort_words(words):
     
     
 sort_words(['ap','ab','ap','ap','ap','d','e','ball','ball','ball'])
+#Most Optimal
+def sort_words(words):
+    dict_list = {}
+    for word in words:
+        dict_list[word] = 1 + dict_list.get(word,0)
+    words.sort(key = lambda x: (dict_list[x],x))
+    print(words)
+    
+    
+sort_words(['ap','ab','ap','ap','ap','d','e','ball','ball','ball'])
+
 
