@@ -4,8 +4,10 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
+        #Create an array for answer
         answer = [1] * len(nums)
         product = 1
+        # Counts the number of zeros in nums array
         zero = 0
 
         for num in nums:
@@ -13,7 +15,9 @@ class Solution(object):
                 zero += 1
                 continue
             product = product * num
-        
+
+        # If there are multiple 0's then all products must be zero, if there is only one zero then the products will be zero except for the one index that is currently 0, else for each index the answer will be the product of the array divided by the current number at that index
+
         if zero > 1:
             for i in range(len(nums)):
                 answer[i] = 0
