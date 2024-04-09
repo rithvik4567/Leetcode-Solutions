@@ -1,0 +1,16 @@
+class Solution(object):
+    def mergeAlternately(self, word1, word2):
+        """
+        :type word1: str
+        :type word2: str
+        :rtype: str
+        """
+        loop_counter = min(len(word1),len(word2))
+        word = ''
+
+        for i in range(loop_counter):
+            word += (word1[i] + word2[i])
+        
+        word += word1[loop_counter:]
+        word += word2[loop_counter:]
+        return word
